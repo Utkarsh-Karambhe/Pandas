@@ -1,0 +1,56 @@
+Pandas:
+
+Data Manipulation:Pandas is primarily used for data manipulation and analysis. It provides data structures and functions to efficiently work with structured data, such as tables or spreadsheets.
+
+Data Cleaning: Pandas helps in cleaning and preprocessing data by handling missing values, reshaping data, and performing operations like filtering, merging, and sorting.
+
+Data Transformation: It enables data transformation tasks, such as grouping data, aggregating data, and applying custom functions to data.
+
+Data I/O: Pandas can read data from various file formats, including CSV, Excel, SQL databases, and more. It can also write data to these formats.
+
+Time Series Analysis: Pandas has excellent support for time series data, making it suitable for analyzing time-based data like stock prices, sensor readings, and more
+
+import pandas as pd
+
+# Create a dictionary with student data
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Age': [21, 22, 20, 23, 21],
+    'Grade': [87, 92, 78, 95, 88]
+}
+
+# Create a DataFrame from the dictionary
+df = pd.DataFrame(data)
+
+# Display the DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Basic DataFrame operations
+# Accessing specific columns
+names = df['Name']
+grades = df['Grade']
+
+# Calculating statistics
+average_grade = df['Grade'].mean()
+max_age = df['Age'].max()
+
+# Filtering data
+above_average = df[df['Grade'] > average_grade]
+
+# Adding a new column
+df['Status'] = ['Pass' if grade >= 80 else 'Fail' for grade in df['Grade']]
+
+# Display the modified DataFrame
+print("\nModified DataFrame:")
+print(df)
+
+# Save the DataFrame to a CSV file
+df.to_csv('student_data.csv', index=False)
+
+# Read data from a CSV file into a DataFrame
+new_df = pd.read_csv('student_data.csv')
+
+# Display the read DataFrame
+print("\nDataFrame read from CSV:")
+print(new_df)
